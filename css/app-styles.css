@@ -1,0 +1,24 @@
+body {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 40em;
+  min-height: 100vh;
+  padding: 2em;
+}
+
+.todo-app {
+  width: 60em;
+  width: 90vw;
+}
+
+.reset-margin {
+  margin: 0;
+}
+
+@media screen and (max-width: 50em) {
+  body {
+    padding: 2em 0 0 0;
+  }
+}
