@@ -34,30 +34,38 @@ const TodoList = React.createClass({
   getClassNames(index) {
     let classesFor = {
           li: ['list-group-item'],
-          button: ['btn', 'btn-primary', 'btn-xs', 'pull-right']
+          buttonDone: ['btn', 'btn-primary', 'btn-xs'],
+          buttonRemove: ['btn', 'btn-danger', 'btn-xs']
         },
         
         successClasses = {
           li: 'list-group-item-success',
-          button: 'btn-success'
+          buttonDone: 'btn-success',
+          buttonRemove: 'btn-danger'
         };
     
     if (this.state.listItens[index].done) {
       classesFor.li.push(successClasses.li);
-      classesFor.button.push(successClasses.button);
+      classesFor.buttonDone.push(successClasses.buttonDone);
+      classesFor.buttonRemove.push(successClasses.buttonRemove);
     }
     
     function forLi() {
       return classesFor.li.join(' ');
     }
     
-    function forButton() {
-      return classesFor.button.join(' ');
+    function forButtonDone() {
+      return classesFor.buttonDone.join(' ');
+    }
+    
+    function forButtonRemove() {
+      return classesFor.buttonRemove.join(' ');
     }
     
     return {
       forLi: forLi,
-      forButton: forButton
+      forButtonDone: forButtonDone,
+      forButtonRemove: forButtonRemove
     };
     
   },
@@ -71,15 +79,29 @@ const TodoList = React.createClass({
         <li className={this.getClassNames(index).forLi()}>
           {item.name}
           
-          <button 
-            className={this.getClassNames(index).forButton()}
-            disabled={item.done}
-            type="button" 
-            id={index} 
-            onClick={this.done}>
+          <div className="pull-right">
+            <button 
+              className={this.getClassNames(index).forButtonDone()}
+              disabled={item.done}
+              type="button" 
+              id={index} 
+              onClick={this.done}>
+
+              Done!
+            </button>
             
-            Done!
-          </button>
+            &nbsp;
+            
+            <button 
+              className={this.getClassNames(index).forButtonRemove()}
+              disabled={item.done}
+              type="button" 
+              id={index} 
+              onClick={this.remove}>
+
+              Delete!
+            </button>
+          </div>
         </li>
       
       );
@@ -102,6 +124,16 @@ const TodoList = React.createClass({
     
     itens.listItens = this.state.listItens.slice();
     itens.listItens[index].done = true;
+    
+    this.setState(itens);
+    localStorage.setItem(STORAGE_ID, JSON.stringify(itens.listItens));
+  },
+  
+  remove(e) {
+    let itens = { listItens: [] },
+        index = parseInt(e.target.id);
+    
+    itens.listItens = this.state.listItens.slice().filter((el, i) => i !== index);
     
     this.setState(itens);
     localStorage.setItem(STORAGE_ID, JSON.stringify(itens.listItens));
