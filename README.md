@@ -1,6 +1,4 @@
-Praticando ReactJS e JSX
+Praticando React.js e Webpack
 ========================
 
-Criando uma simples to do list com ReactJS, JSX, Babel e Bootstrap.
-
-[Exemplo](http://joaorigotti.com/labs/react-todo/) focado em **states**, deixando de lado por enquanto componentização, flux e etc.
+Desenvolvido uma simples to do list com React.js, JSX, Babel, Bootstrap e Webpack. [Exemplo em ação](http://joaorigotti.com/labs/react-todo/).
