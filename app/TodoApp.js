@@ -78,4 +78,4 @@ class TodoApp extends Component {
 
 }
 
-export default TodoList;
+export default TodoApp;

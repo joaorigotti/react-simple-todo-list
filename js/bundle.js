@@ -21573,7 +21573,7 @@
 	  return TodoApp;
 	}(_react.Component);
 
-	exports.default = TodoList;
+	exports.default = TodoApp;
 
 /***/ },
 /* 173 */
