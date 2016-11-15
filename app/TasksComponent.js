@@ -3,6 +3,10 @@ import PubSub from 'pubsub-js';
 
 class TasksComponent extends Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   done(key) {
     let tasks = this.props.tasks;
 
@@ -59,6 +63,10 @@ class TasksComponent extends Component {
     )
   }
 
+}
+
+TasksComponent.propTypes = {
+  tasks: React.PropTypes.array
 }
 
 export default TasksComponent;

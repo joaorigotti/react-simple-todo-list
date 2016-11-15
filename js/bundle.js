@@ -21897,10 +21897,10 @@
 	var TasksComponent = function (_Component) {
 	  _inherits(TasksComponent, _Component);
 
-	  function TasksComponent() {
+	  function TasksComponent(props) {
 	    _classCallCheck(this, TasksComponent);
 
-	    return _possibleConstructorReturn(this, (TasksComponent.__proto__ || Object.getPrototypeOf(TasksComponent)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (TasksComponent.__proto__ || Object.getPrototypeOf(TasksComponent)).call(this, props));
 	  }
 
 	  _createClass(TasksComponent, [{
@@ -21989,6 +21989,10 @@
 
 	  return TasksComponent;
 	}(_react.Component);
+
+	TasksComponent.propTypes = {
+	  tasks: _react2.default.PropTypes.array
+	};
 
 	exports.default = TasksComponent;
 
